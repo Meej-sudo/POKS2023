@@ -1,2 +1,17 @@
+#include <stdio.h>
 
+int main() {
+   char str[20];
+   char ime;
+   printf("Prosim vnesi svoje ime: ");
+   Printf("Prosim vesi svoj priimek: ");
+   
+   fgets(str, 20, stdin);
+   scanf("%s",&ime);
+
+
+
+   printf("Pozdravljen %s\n", str);
+   return 0;
+}
 
