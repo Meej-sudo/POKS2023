@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+float izracunSplosneOlajsave(float dohodek){
+    if(dohodek > 13316.83){
+        return 3500.0;
+    }
+    return 3500 + (18700.38 - 1.40427* dohodek);
+}
+float dohodninskaOsnova(float dohodek){
+    float invalidsko = dohodek*0.155;
+    float normStroski = dohodek*0.1;
+    float posebnaOlajsava = 3500.0;
+    float splosnaOlajsava = izracunSplosneOlajsave(dohodek);
+    float osnova = dohodek - invalidsko - normStroski - posebnaOlajsava - splosnaOlajsava;
+    if(osnova < 0)
+        return 0;
+    return osnova;
+}
+float izracunDohodnine(float dohodek){
+    float osnova = dohodninskaOsnova(dohodek);
+    if(osnova < 8500)
+        return osnova * 0.16;
+    if(osnova < 25000)
+        return 1360 + (osnova - 8500) * 0.26;
+    if(osnova < 50000)
+        return 5650 + (osnova - 25000)*0.33;
+    if(osnova < 72000)
+        return 13900 + (osnova - 50000)*0.39;
+    return 22480 + (osnova - 72000)*0.5;
+}
+
+int main(){
+    float dohodek;
+    printf("Vnesite vaš bruto dohodek: ");
+    scanf("%f", &dohodek);
+    float dohodnina = izracunDohodnine(dohodek);
+    printf("Plačilo dohodnine je %f€.", dohodnina);
+    return 0;
+}
