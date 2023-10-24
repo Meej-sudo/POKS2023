@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+    printf("Ugani število med 1 in 100");
+    srand(time(NULL));
+    int stevilo = rand()%100 + 1;
+    int u;
+    int steviloPoskusov = 6;
+    do {
+        printf("Vnesi število: ");
+        scanf("%d", &u);
+        if(u == stevilo){
+            printf("Zmaga!");
+            return 0;
+        }
+        if(u < stevilo){
+            printf("Število je premajhno!");
+        } else {
+            printf("Število je preveliko!");
+        }
+        steviloPoskusov = steviloPoskusov -1;
+    } while(steviloPoskusov > 0);
+    printf("Števila nisi uganil, iskali smo število %d.", stevilo);
+    return 0;
+}
