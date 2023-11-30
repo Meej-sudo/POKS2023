@@ -50,7 +50,7 @@ void fun2(void){
         while(vpis == branje);
         //strcpy();
         pritnf("Nit2 je sprejela: %s Branje=%d Vpis=%d\n", msgBuff, branje, vpis);
-        //branje = (branje +1) % MAX_MSG;
+        //branje;
         if(msgBuff[0]=='X')
         {
             printf("Nit2 je zakljucila");
